@@ -1,0 +1,23 @@
+.specialItems-container{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px, 1fr)) ;
+    font-size: 30px;
+    background: #c56848;
+
+
+}
+
+.SpecialItem{
+    display: flex;
+    word-break: break-word;
+    margin: 10px;
+    border: 5px black solid;
+}
+
+.SpecialItem-description{
+    display:none;
+}
+
+.SpecialItem:hover+.SpecialItem-description{
+    display: block;
+}

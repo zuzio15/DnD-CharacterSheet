@@ -1,0 +1,16 @@
+
+.items-container{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px, 1fr)) ;
+    font-size: 30px;
+    background: #bc603f;
+
+
+}
+
+.item{
+    display: flex;
+    word-break: break-word;
+    margin: 10px;
+    border: 5px #000c8e solid;
+}
