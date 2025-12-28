@@ -39,7 +39,7 @@ export default function EquipmentPage() {
     return (
         <div>
             <h2>Ekwipunek</h2>
-            <div className="equipmentMenu">
+            <div className="equipmentMenu menu">
             <input
                 type="text"
                 value={newName}

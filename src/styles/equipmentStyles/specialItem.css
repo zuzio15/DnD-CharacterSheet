@@ -1,23 +1,39 @@
 .specialItems-container{
     display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px, 1fr)) ;
+    grid-template-columns: repeat(auto-fit,minmax(300px, 300px)) ;
     font-size: 30px;
-    background: #c56848;
-
+    background: rgba(197, 104, 72, 0.8);
+    width: 83%;
+    justify-self: center;
+    text-align: center;
+    justify-content: center;
+    margin: 5px;
 
 }
-
 .SpecialItem{
-    display: flex;
     word-break: break-word;
-    margin: 10px;
-    border: 5px black solid;
+    margin: 5px;
+    border: 5px #f1c517 dashed;
+    background: #9c5f0b;
+    border-radius: 10px;
 }
 
 .SpecialItem-description{
     display:none;
+
 }
 
 .SpecialItem:hover+.SpecialItem-description{
     display: block;
+}
+.specialItem-button{
+    display: flex;
+    justify-self: center;
+    background: #df7204;
+    border: #1e0e0e solid 2px;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+.specialItem-button:hover{
+    background: #fb9b3a;
 }

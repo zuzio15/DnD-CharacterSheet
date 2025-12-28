@@ -1,0 +1,11 @@
+.skills-container{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(10px, 1fr)) ;
+    margin: 5px;
+    background: rgba(152, 75, 47, 0.77);
+    justify-content: center;
+    width: 83%;
+    justify-self: center;
+    background: linear-gradient(90deg, rgba(123, 64, 44, 0.3) 0%, rgba(123, 64, 44, 0.82) 50%, rgba(123, 64, 44, 0.3) 100%);
+
+}

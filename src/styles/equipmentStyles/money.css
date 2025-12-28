@@ -1,4 +1,7 @@
 .money{
     font-size: 50px;
-    background: coral;
+    background: rgba(255, 127, 80, 0.83);
+    width: 83%;
+    justify-self: center;
+    text-align: center;
 }

@@ -6,16 +6,20 @@ export default function Item({id,name,number,deleteItem,addQuantity,subtractQuan
     return(
         <div>
             <div className="item">
-                {name} Ilosc: {number}
+                {name}
+                <div className="quantity">
+                    Ilosc: {number}
+                </div>
             </div>
-            <button onClick={()=>deleteItem(id)}>
+            <button className="item-roundButton" onClick={()=>subtractQuantity(id)}>
+                -
+            </button>
+            <button className="item-button" onClick={()=>deleteItem(id)}>
                 usun
             </button>
-            <button onClick={()=>addQuantity(id)}>
-                +
-            </button>
-            <button onClick={()=>subtractQuantity(id)}>
-                -
+
+            <button className="item-roundButton" onClick={()=>addQuantity(id)}>
+            +
             </button>
         </div>
 

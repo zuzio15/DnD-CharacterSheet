@@ -1,0 +1,37 @@
+.magic-container{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(10px, 1fr)) ;
+    margin: 5px;
+    background: rgba(152, 75, 47, 0.77);
+    justify-content: center;
+    width: 83%;
+    justify-self: center;
+    background: linear-gradient(90deg, rgba(123, 64, 44, 0.3) 0%, rgba(123, 64, 44, 0.82) 50%, rgba(123, 64, 44, 0.3) 100%);
+
+}
+.level-0{
+    background: #b51d1d;
+    font-size: 30px;
+    text-align: center;
+
+}
+.level-1{
+    background: #610404;
+    font-size: 30px;
+    text-align: center;
+
+}
+
+.level-2{
+    background: #5c0505;
+    font-size: 30px;
+    text-align: center;
+
+}
+
+.level-3{
+    background: #390303;
+    font-size: 30px;
+    text-align: center;
+
+}

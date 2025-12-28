@@ -12,7 +12,7 @@ export default function SpecialItem({id,name,desc,deleteSpecialItem}){
             <div className="SpecialItem-description">
                 {desc}
             </div>
-            <button onClick={()=>deleteSpecialItem(id)}>
+            <button className="specialItem-button" onClick={()=>deleteSpecialItem(id)}>
                 usun
             </button>
         </div>

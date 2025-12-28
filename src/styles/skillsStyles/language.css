@@ -1,0 +1,8 @@
+.language{
+    display: flex;
+    font-size: 20px;
+    border: solid black 5px;
+    margin: 5px;
+    background: #9c5f0b;
+
+}

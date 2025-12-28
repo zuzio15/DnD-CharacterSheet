@@ -5,12 +5,16 @@ export default function Weapon  ({id,name,desc,damage,deleteWeapon}) {
     return (
         <div>
             <div className="weapon">
-                {name} Damage:{damage}
+                {name}
+                <div className="weapon-damage">
+                    Damage:{damage}
+                </div>
             </div>
+
             <div className="weapon-description">
                 {desc}
             </div>
-            <button onClick={()=>deleteWeapon(id)}>
+            <button className="weapon-button" onClick={()=>deleteWeapon(id)}>
                 usun
             </button>
         </div>

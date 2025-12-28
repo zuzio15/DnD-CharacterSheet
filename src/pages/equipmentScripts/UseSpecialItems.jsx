@@ -1,8 +1,11 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 
 export function useSpecialItems(){
-    const [specialItems,setSpecialItems]=useState([])
+    const [specialItems,setSpecialItems]=useState(() => {
+        const saved = localStorage.getItem("specialItems");
+        return saved ? JSON.parse(saved) : [];
+    });
 
     const addSpecialItem = (name,desc) => {
         if(name.length > 0){const newSItem ={
@@ -23,6 +26,10 @@ export function useSpecialItems(){
             setSpecialItems(tempSItem);
         }
     }
+    useEffect(() => {
+        localStorage.setItem("specialItems",JSON.stringify(specialItems))
+    }, [specialItems]);
+
     return {specialItems,addSpecialItem,deleteSpecialItem}
 
 }

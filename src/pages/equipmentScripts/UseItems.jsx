@@ -1,7 +1,10 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 export function useItems(){
-    const [items,setItems]=useState([])
+    const [items,setItems]=useState(() => {
+        const saved = localStorage.getItem("items");
+        return saved ? JSON.parse(saved) : [];
+    });
 
 
     const addItem = (name,number) =>{
@@ -44,7 +47,12 @@ export function useItems(){
             setItems(tempItems)
         }
 
+
+
     }
+    useEffect(() => {
+        localStorage.setItem("items",JSON.stringify(items))
+    }, [items]);
 
     return{items,addItem,deleteItem,addQuantity,subtractQuantity}
 }

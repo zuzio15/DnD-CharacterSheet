@@ -1,8 +1,11 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 
 export function useWeapons(){
-    const [weapons, setWeapons] = useState([]);
+    const [weapons, setWeapons] = useState(() => {
+        const saved = localStorage.getItem("weapons");
+        return saved ? JSON.parse(saved) : [];
+    });
 
     const addWeapon = (name,desc,damage) => {
         if(name.length > 0){const newWeapon ={
@@ -23,6 +26,10 @@ export function useWeapons(){
             setWeapons(tempWeapons);
         }
     }
+
+    useEffect(() => {
+        localStorage.setItem("weapons",JSON.stringify(weapons))
+    }, [weapons]);
 
     return {weapons,addWeapon,deleteWeapon}
 }

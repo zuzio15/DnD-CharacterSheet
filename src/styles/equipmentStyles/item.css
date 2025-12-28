@@ -1,16 +1,50 @@
 
 .items-container{
     display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px, 1fr)) ;
+    grid-template-columns: repeat(auto-fit,minmax(300px, 300px)) ;
     font-size: 30px;
-    background: #bc603f;
+    background: rgba(188, 96, 63, 0.76);
+    width: 83%;
+    justify-self: center;
+    text-align: center;
+    justify-content: center;
+
 
 
 }
 
 .item{
-    display: flex;
     word-break: break-word;
     margin: 10px;
-    border: 5px #000c8e solid;
+    border: 5px #1e0e0e solid;
+    background: #b96f6f;
+}
+
+.quantity{
+    font-size: 20px;
+    border-top: 5px solid #1e0e0e;
+}
+.item-button{
+
+    background: #985238;
+    border: black 2px solid;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.item-button:hover{
+    background: #d16f4c;
+}
+
+.item-roundButton{
+    background: #985238;
+    border: black 2px solid;
+    margin: 5px;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+
+.item-roundButton:hover{
+    background: #d16f4c;
 }
