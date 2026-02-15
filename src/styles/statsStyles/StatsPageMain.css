@@ -1,0 +1,10 @@
+.mainStats-container{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    justify-content: center;
+}
+
+.break{
+    text-align: center;
+    font-size: 20px;
+}

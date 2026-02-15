@@ -1,9 +1,18 @@
 import React, {useEffect, useState} from "react";
-import "../../styles/magicStyles/spell.css"
+import "../../styles/magicStyles/spell.css";
+import {useSpellSlot} from "./useSpellSlot";
 export function useSpell(){
     const [spells,setSpells]= useState(() => {
         const saved = localStorage.getItem("spells");
         return saved ? JSON.parse(saved) : [];
+    });
+    //const {createSlot} = useSpellSlot(); //nie działa jeszcze!!!!!!!!!!!!!!!!!!!!
+
+
+    //spelle pojawiaja sie dopiero po odswiezeniu?
+    const [levelList,setLevelList]=useState(() => {
+        const saved = localStorage.getItem("levelList");
+        return saved ? JSON.parse(saved).map(level => Number(level)) : [];
     });
 
     const addSpell = (name,level) => {
@@ -11,10 +20,17 @@ export function useSpell(){
         if(name.length > 0){const newSpell ={
             id:Date.now(),
             name:name,
-            level:temp,
+            level: temp,
             desc:"",
 
         };
+            if(spells.filter((spell)=>spell.level===temp).length===0){
+                console.log("2413123ifwenfoi");
+                //createSlot();
+                setLevelList([...levelList,level].sort((a,b)=>a-b))
+                console.log(levelList)
+                console.log("egiuuvnwuifwenfoi");
+            }
             setSpells(prevSpells => {
                 const updated = [...prevSpells, newSpell];
                 return updated.sort((a, b) => a.level - b.level);
@@ -44,5 +60,8 @@ export function useSpell(){
     useEffect(() => {
         localStorage.setItem("spells",JSON.stringify(spells))
     }, [spells]);
-    return{spells,addSpell,deleteSpell,saveSpellDesc}
+    useEffect(() => {
+        localStorage.setItem("levelList",JSON.stringify(levelList))
+    }, [levelList]);
+    return{spells,addSpell,deleteSpell,saveSpellDesc,levelList}
 }

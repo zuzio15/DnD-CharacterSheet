@@ -2,7 +2,11 @@ import React, {useEffect, useState} from "react";
 
 
 export function useMoney(){
-    const [money,setMoney] = useState(parseInt(localStorage.getItem("money")) );
+    const [money,setMoney] = useState(() => {
+        const saved = localStorage.getItem("money")
+        return saved ? parseInt(JSON.parse(saved)) : 0;
+    }
+         );
 
     const addMoney = (newMoney) => {
         const temp = parseInt(newMoney)|0;

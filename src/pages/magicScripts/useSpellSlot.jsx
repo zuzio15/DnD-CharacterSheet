@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-
+/* JAK DODAJE SPELLA A NIE NIE MAM SPELL SLOTOW TO DODAC SPELLSLOTA + -> */
 export function useSpellSlot(){
     const [spellSlots,setSpellSlots]=useState(() => {
         const saved = localStorage.getItem("spellSlots");
@@ -67,9 +67,16 @@ export function useSpellSlot(){
             ));
     }
 
+    const castSpell =(level)=>{
+        if(level!==0){
+            consumeSlot(level);
+        }
+
+    }
+
     useEffect(() => {
         localStorage.setItem("spellSlots",JSON.stringify(spellSlots))
     }, [spellSlots]);
 
-    return{spellSlots,createSlot,addSlot,subtractSlot,consumeSlot,restoreSlot, longRest}
+    return{spellSlots,createSlot,addSlot,subtractSlot,consumeSlot,restoreSlot, longRest,castSpell}
 }

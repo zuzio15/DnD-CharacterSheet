@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 
-export default function Spell({id,name,level,desc,deleteSpell,saveSpellDesc}){
+export default function Spell({id,name,level,desc,deleteSpell,saveSpellDesc,castSpell}){
     const [isExpanded, setIsExpanded] = useState(false)
     return(
         <div>
@@ -17,6 +17,9 @@ export default function Spell({id,name,level,desc,deleteSpell,saveSpellDesc}){
                               value={desc}>
                 </textarea>
                 )}
+                <button onClick={()=>castSpell(level)}>
+                    rzuć zaklęcie
+                </button>
 
 
             </div>

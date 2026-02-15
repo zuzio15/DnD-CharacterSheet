@@ -1,17 +1,18 @@
 import React, {useState} from "react";
-import Spell from "./magicScripts/Spell";
 import {useSpell} from "./magicScripts/useSpell";
 import "../styles/magicStyles/magicMain.css"
 import {SpellList} from "./magicScripts/SpellList";
-import Proficiency from "./skillsScripts/Proficiency";
 import {useSpellSlot} from "./magicScripts/useSpellSlot";
 import SpellSlot from "./magicScripts/SpellSlot";
 
+
+//DODAC SAVE SPELL DC + SPELL ATTACK BONUS + SPELLCASTING ABILITY
 export default function MagicPage() {
-    const {spells,addSpell,deleteSpell,saveSpellDesc}=useSpell();
-    const {spellSlots,createSlot,addSlot,subtractSlot,consumeSlot,restoreSlot,longRest}=useSpellSlot();
+    const {spells,addSpell,deleteSpell,saveSpellDesc,levelList}=useSpell();
+    const {spellSlots,createSlot,addSlot,subtractSlot,consumeSlot,restoreSlot,longRest,castSpell}=useSpellSlot();
     const [newSpell,setNewSpell]=useState("");
     const [newSpellLvl,setNewSpellLvl]=useState("0")
+
 
     const resetForms =() =>{
         setNewSpellLvl("")
@@ -38,6 +39,12 @@ export default function MagicPage() {
                         <option value="1">1 Krąg</option>
                         <option value="2">2 Krąg</option>
                         <option value="3">3 Krąg</option>
+                        <option value="4">4 Krąg</option>
+                        <option value="5">5 Krąg</option>
+                        <option value="6">6 Krąg</option>
+                        <option value="7">7 Krąg</option>
+                        <option value="8">8 Krąg</option>
+                        <option value="9">9 Krąg</option>
 
                     </select>
                 </form>
@@ -82,10 +89,18 @@ export default function MagicPage() {
                 ))}
 
             </div>
-            <div className="spells-container magic-container">
-                <SpellList spells={spells}
-                deleteSpell={deleteSpell}
-                saveSpellDesc={saveSpellDesc}/>
+            <div className="spells-container ">
+                {levelList.map(level=>(
+                    <SpellList
+                        key={level}
+                        level={level}
+                        spells={spells}
+                        deleteSpell={deleteSpell}
+                        saveSpellDesc={saveSpellDesc}
+                        castSpell={castSpell}/>
+                ))
+                }
+
 
             </div>
         </div>

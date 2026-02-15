@@ -1,0 +1,11 @@
+.mainStat{
+    border: #1e0e0e solid 4px;
+    font-size: 20px;
+    text-align: center;
+    padding: 5px;
+}
+
+.modifier{
+    border: #1e0e0e solid 4px;
+    border-radius: 10px ;
+}
