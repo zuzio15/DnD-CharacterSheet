@@ -9,4 +9,8 @@
 h1{
     margin: 5px;
     padding: 0;
+    color: transparent;
+    background: #020000;
+    background-clip: text;
+    text-shadow: 0px 3px 3px rgb(188, 167, 76);
 }
