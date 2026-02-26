@@ -43,5 +43,25 @@ h2{
 
 
 }
+input{
+    background-color: #8e5c28;
+    border: black solid 1px;
+    border-radius: 5px;
+    color: #f1e6e6;
+}
+
+input::placeholder{
+    color: #b1a5a5;
+}
+button{
+    background-color: #745738;
+    color: #f1e6e6;
+    border: black solid 1px;
+}
+textarea{
+    width: 100%;
+    background: none;
+    background: rgb(225, 172, 130);
+}
 
 

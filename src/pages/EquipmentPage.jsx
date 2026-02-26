@@ -11,29 +11,24 @@ import {useItems} from "./equipmentScripts/UseItems";
 
 
 export default function EquipmentPage() {
-    const {weapons,addWeapon,deleteWeapon}=useWeapons();
+    const {weapons,addWeapon,deleteWeapon,updateWeaponDesc}=useWeapons();
     const {money,addMoney,subtractMoney}=useMoney();
-    const {specialItems,addSpecialItem,deleteSpecialItem}=useSpecialItems();
+    const {specialItems,addSpecialItem,deleteSpecialItem,updateSpecialItemDesc}=useSpecialItems();
     const {items,addItem,deleteItem,addQuantity,subtractQuantity}=useItems();
-
     const [newName, setNewName] = useState("");
     const [newMoney, setNewMoney] = useState("");
-    const [newDesc,setNewDesc]=useState("")
     const [newSpecialItem,setNewSpecialItem]=useState("")
     const [newItem,setNewItem]=useState("")
-    const [newDescSI,setNewDescSI]=useState("")
     const [newNumber,setNewNumber]=useState("1")
     const [newDamage,setNewDamage]=useState("")
 
 
     const resetForms =() =>{
         setNewName("");
-        setNewDesc("");
         setNewMoney("");
         setNewSpecialItem("");
         setNewItem("");
         setNewNumber("1")
-        setNewDescSI("")
         setNewDamage("")
     }
     return (
@@ -48,17 +43,11 @@ export default function EquipmentPage() {
             />
             <input
                 type="text"
-                value={newDesc}
-                onChange={(e) => setNewDesc(e.target.value)}
-                placeholder="opis"
-            />
-            <input
-                type="text"
                 value={newDamage}
                 onChange={(e) => setNewDamage(e.target.value)}
                 placeholder="damage"
             />
-            <button onClick={() => {addWeapon(newName,newDesc,newDamage);
+            <button onClick={() => {addWeapon(newName,newDamage);
                 resetForms()}}>
                 Dodaj broń
             </button>
@@ -84,13 +73,7 @@ export default function EquipmentPage() {
                 onChange={(e) => setNewSpecialItem(e.target.value)}
                 placeholder="specjalny itemek"
             />
-            <input
-                type="text"
-                value={newDescSI}
-                onChange={(e) => setNewDescSI(e.target.value)}
-                placeholder="opis"
-            />
-            <button onClick={() => {addSpecialItem(newSpecialItem,newDescSI);
+            <button onClick={() => {addSpecialItem(newSpecialItem);
                 resetForms()}}>
                 Dodaj specjalny itemek
             </button>
@@ -122,6 +105,7 @@ export default function EquipmentPage() {
                         desc={weapon.desc}
                         damage={weapon.damage}
                         deleteWeapon={deleteWeapon}
+                        updateWeaponDesc={updateWeaponDesc}
                     />
 
                 ))}
@@ -136,6 +120,7 @@ export default function EquipmentPage() {
                         name={sitem.name}
                         desc={sitem.desc}
                         deleteSpecialItem={deleteSpecialItem}
+                        updateSpecialItemDesc={updateSpecialItemDesc}
                     />
                 ))}
             </div>

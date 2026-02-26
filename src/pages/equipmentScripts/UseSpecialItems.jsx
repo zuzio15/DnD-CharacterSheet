@@ -18,6 +18,13 @@ export function useSpecialItems(){
 
         }
     }
+    const updateSpecialItemDesc =(SpecialItemId,textarea) =>{
+        const index =specialItems.findIndex(item=>item.id===SpecialItemId);
+        const tempSI={...specialItems[index], desc:textarea}
+        const tempSpecialItems =[...specialItems.slice(0,index),tempSI,...specialItems.slice(index+1)]
+        setSpecialItems(tempSpecialItems);
+
+    }
 
     const deleteSpecialItem = (SpecialItemId) =>{
         const index =specialItems.findIndex(specialItem=>specialItem.id===SpecialItemId);
@@ -30,6 +37,6 @@ export function useSpecialItems(){
         localStorage.setItem("specialItems",JSON.stringify(specialItems))
     }, [specialItems]);
 
-    return {specialItems,addSpecialItem,deleteSpecialItem}
+    return {specialItems,addSpecialItem,deleteSpecialItem,updateSpecialItemDesc}
 
 }

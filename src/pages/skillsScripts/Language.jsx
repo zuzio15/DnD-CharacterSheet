@@ -6,7 +6,7 @@ export default function Language({id,name,deleteLanguage}){
     return(
         <div>
             <div className="language">
-                {name}
+                <span className="language-text">{name}</span>
                 <button onClick={()=>deleteLanguage(id)}>
                     usun
                 </button>
