@@ -1,8 +1,11 @@
 .proficiency{
     display: flex;
     font-size: 20px;
-
     border: solid #872424 5px;
     margin: 5px;
     background: #9c5f0b;
+}
+
+.proficiency-text{
+    margin-right: 10px;
 }

@@ -1,8 +1,12 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 
-export default function Spell({id,name,level,desc,deleteSpell,saveSpellDesc,castSpell}){
+export default function Spell({id,name,level,desc,deleteSpell,saveSpellDesc,castSpell,spellSlotNumber}){
     const [isExpanded, setIsExpanded] = useState(false)
+    const [isDisabled, setIsDisabled] = useState(spellSlotNumber <= 0)
+    useEffect(()=>{
+        setIsDisabled(spellSlotNumber <= 0)
+    }, [spellSlotNumber])
     return(
         <div>
             <div className="spell">
@@ -17,7 +21,7 @@ export default function Spell({id,name,level,desc,deleteSpell,saveSpellDesc,cast
                               value={desc}>
                 </textarea>
                 )}
-                <button onClick={()=>castSpell(level)}>
+                <button onClick={()=>castSpell(level)} disabled={isDisabled} className="castSpellButton">
                     rzuć zaklęcie
                 </button>
 

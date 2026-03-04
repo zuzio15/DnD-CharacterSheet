@@ -1,6 +1,6 @@
 .specialItems-container{
     display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px, 300px)) ;
+    grid-template-columns: repeat(auto-fit,minmax(200px, max-content)) ;
     font-size: 30px;
     background: rgba(197, 104, 72, 0.8);
     width: 83%;

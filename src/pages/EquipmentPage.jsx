@@ -96,7 +96,7 @@ export default function EquipmentPage() {
             </button>
 
             </div>
-            <div className="weapons-container">
+            <div className="weapons-container eq-container">
                 {weapons.map(weapon =>(
                     <Weapon
                         key={weapon.id}
@@ -112,7 +112,7 @@ export default function EquipmentPage() {
 
             </div>
             <Money money={money}/>
-            <div className="specialItems-container">
+            <div className="specialItems-container eq-container">
                 {specialItems.map(sitem =>(
                     <SpecialItem
                         key={sitem.id}
@@ -124,7 +124,7 @@ export default function EquipmentPage() {
                     />
                 ))}
             </div>
-            <div className="items-container">
+            <div className="items-container eq-container">
                 {items.map(item =>(
                     <Item
                         key={item.id}

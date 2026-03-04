@@ -97,7 +97,9 @@ export default function MagicPage() {
                         spells={spells}
                         deleteSpell={deleteSpell}
                         saveSpellDesc={saveSpellDesc}
-                        castSpell={castSpell}/>
+                        castSpell={castSpell}
+                        spellSlots={spellSlots}
+                    />
                 ))
                 }
 

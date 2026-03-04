@@ -6,7 +6,7 @@ export default function Ability({id,name,desc,deleteAbility,saveAbilityDesc}){
     return(
         <div>
             <div className="ability">
-                {name}
+                <span className="ability-text">{name}</span>
                 <button onClick={()=>deleteAbility(id)}>
                     usun
                 </button>
@@ -17,8 +17,6 @@ export default function Ability({id,name,desc,deleteAbility,saveAbilityDesc}){
                               value={desc}>
                 </textarea>
                 )}
-
-
             </div>
 
         </div>

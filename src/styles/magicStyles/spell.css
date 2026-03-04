@@ -4,3 +4,8 @@
     border: 5px solid black;
     margin: 5px
 }
+
+.castSpellButton:disabled{
+    background-color: #a58d6d;
+    color: #4c4646;
+}

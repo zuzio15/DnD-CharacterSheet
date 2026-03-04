@@ -5,7 +5,7 @@ export default function Proficiency({id,name,deleteProficiency}){
     return(
         <div>
             <div className="proficiency">
-                {name}
+                <span className="proficiency-text">{name}</span>
                 <button onClick={()=>deleteProficiency(id)}>
                     usun
                 </button>

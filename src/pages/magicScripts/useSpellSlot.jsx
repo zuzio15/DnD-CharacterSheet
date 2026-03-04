@@ -29,10 +29,10 @@ export function useSpellSlot(){
 
     const subtractSlot = (level) => {
         const index =spellSlots.findIndex(i=>i.level===level);
-        if(index!==-1 ){
+        if(index!==-1 && spellSlots[index].quantity!==0){
             const tempSlot = spellSlots[index];
             tempSlot.quantity-=1;
-            tempSlot.available-=1; /* dodac co jak minus usunanc czy nie ??? !!!!!!!! */
+            consumeSlot(level)
             const tempSpellSlots=[...spellSlots.slice(0,index),tempSlot,...spellSlots.slice(index+1)]
             setSpellSlots(tempSpellSlots);
         }

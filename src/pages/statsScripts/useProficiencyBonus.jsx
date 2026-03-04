@@ -4,7 +4,7 @@ import React, {useEffect, useState} from "react";
 export function useProficiencyBonus(){
     const [proficiencyBonus,setProficiencyBonus] = useState(() => {
             const saved = localStorage.getItem("proficiencyBonus")
-            return saved ? parseInt(JSON.parse(saved)) : 0;
+            return saved ? parseInt(JSON.parse(saved)) : 1;
         }
     );
     const changeProficiencyBonus=(value)=>{

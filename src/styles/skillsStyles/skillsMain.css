@@ -1,12 +1,10 @@
 .skills-container{
-    display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(100px, 1fr)) ;
+    display:flex;
+    flex-wrap: wrap;
     gap:5px;
     margin: 5px;
-    background: rgba(152, 75, 47, 0.77);
+    background: rgba(214, 135, 106, 0.51);
     justify-content: center;
     width: 83%;
     justify-self: center;
-    background: linear-gradient(90deg, rgba(123, 64, 44, 0.3) 0%, rgba(123, 64, 44, 0.82) 50%, rgba(123, 64, 44, 0.3) 100%);
-
 }

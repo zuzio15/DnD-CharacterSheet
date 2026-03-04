@@ -1,19 +1,13 @@
 .language{
     display: flex;
-    width: 100%;
     font-size: 20px;
     border: solid black 5px;
     margin: 5px;
     background: #9c5f0b;
-    min-width: 10px;
-    justify-content: space-between;
-    box-sizing: border-box;
-
+    min-width: 50px;
 }
 
 .language-text {
     margin-right: 10px;
-    overflow: hidden; /* ukrywa nadmiar */
-    text-overflow: ellipsis; /* dodaje ... */
-    white-space: nowrap; /* tekst w jednej linii */
+
 }

@@ -114,7 +114,7 @@ export default function StatsPage() {
             <button onClick={() => setShowTempInputs(!showTempInputs)} className="stats-button">
                 Pokaż Ustawienia
             </button>
-            {showTempInputs && <div className="tempStats-inputs">
+            {showTempInputs && <div className="tempStats-inputs menu">
                 <input
                     value={damage}
                     type="number"
@@ -204,7 +204,7 @@ export default function StatsPage() {
             <button onClick={() => setShowMainInputs(!showMainInputs)} className="stats-button">
                 Pokaż Ustawienia
             </button>
-            {showMainInputs && <div className="stats-inputs">
+            {showMainInputs && <div className="stats-inputs menu">
                 <div className="character-data-inputs">
                     <input
                         value={name}

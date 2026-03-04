@@ -39,7 +39,8 @@ h2{
     margin:10px;
     color: #91710f;
     text-shadow: black 2px 2px;
-    background: linear-gradient(90deg, rgba(159, 104, 84, 0.3) 0%, rgba(186, 143, 127, 0.82) 50%, rgba(159, 104, 84, 0.3) 100%);
+    background: rgba(202, 132, 53, 0.82);
+    border-radius: 20px;
 
 
 }
@@ -62,6 +63,13 @@ textarea{
     width: 100%;
     background: none;
     background: rgb(225, 172, 130);
+}
+
+select{
+    background-color: #8e5c28;
+    border: black solid 1px;
+    border-radius: 5px;
+    color: #f1e6e6;
 }
 
 

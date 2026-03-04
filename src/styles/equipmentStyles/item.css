@@ -1,9 +1,9 @@
 
 .items-container{
     display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px, 300px)) ;
+    grid-template-columns: repeat(auto-fit,minmax(200px, max-content)) ;
     font-size: 30px;
-    background: rgba(188, 96, 63, 0.76);
+    background: rgba(197, 104, 72, 0.8);
     width: 83%;
     justify-self: center;
     text-align: center;
