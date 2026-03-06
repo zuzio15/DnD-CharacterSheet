@@ -1,19 +1,17 @@
 import Spell from "./Spell";
-import React from "react";
+import React, {useEffect} from "react";
 export function SpellList({level,spells,deleteSpell,saveSpellDesc,castSpell,spellSlots}) {
     const filteredSpells=spells.filter(spell=>spell.level===level);
     const calculateSpellSlotNumber=()=>{
-        if (level>spellSlots.length+1){
+        if (level === 0) {
+            return 1;
+        }
+
+        if (level - 1 >= spellSlots.length) {
             return 0;
         }
-        else {
-            if (level===0){
-                return 1;
-            }
-            else {
-                return spellSlots[level-1].available;
-            }
-        }
+
+        return spellSlots[level - 1].available;
     }
     return (
         <div className={"level-" + level} >

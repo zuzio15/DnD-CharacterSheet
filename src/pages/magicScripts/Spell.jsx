@@ -10,24 +10,31 @@ export default function Spell({id,name,level,desc,deleteSpell,saveSpellDesc,cast
     return(
         <div>
             <div className="spell">
-                {name} {level}
-                <button onClick={()=>deleteSpell(id)}>
-                    usun
-                </button>
-                <button className="showDesc" onClick={()=>setIsExpanded(!isExpanded)}>
-                </button>
-                {isExpanded &&(
-                    <textarea onChange={(e)=>saveSpellDesc(id,e.target.value)}
-                              value={desc}>
+                <div className="info">
+                    {name}
+                </div>
+
+                <div className="spellButtons">
+                    <button onClick={()=>deleteSpell(id)}>
+                        usun
+                    </button>
+                    <button className="showDesc" onClick={()=>setIsExpanded(!isExpanded)}>
+                        ▼
+                    </button>
+                    {isExpanded &&(
+                        <textarea onChange={(e)=>saveSpellDesc(id,e.target.value)}
+                                  value={desc}>
                 </textarea>
-                )}
-                <button onClick={()=>castSpell(level)} disabled={isDisabled} className="castSpellButton">
-                    rzuć zaklęcie
-                </button>
+                    )}
+                    <button onClick={()=>castSpell(level)} disabled={isDisabled} className="castSpellButton">
+                        rzuć zaklęcie
+                    </button>
+                </div>
+
 
 
             </div>
 
-        </div>
+     </div>
     )
 }

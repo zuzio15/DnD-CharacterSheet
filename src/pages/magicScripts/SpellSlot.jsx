@@ -1,7 +1,11 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 
 
-export default function SpellSlot({id,available,level,quantity,createSlot,addSlot,subtractSlot,consumeSlot,restoreSlot,longRest}){
+export default function SpellSlot({id,available,level,quantity,addSlot,subtractSlot,consumeSlot,restoreSlot,deleteSlot,maxSlot}) {
+    const [showDelete, setShowDelete] = useState(maxSlot===level);
+    useEffect(()=>{
+        setShowDelete(maxSlot===level);
+    },[maxSlot])
     return(
         <div>
             <div className="item">
@@ -23,6 +27,12 @@ export default function SpellSlot({id,available,level,quantity,createSlot,addSlo
             <button className="item-roundButton" onClick={()=>restoreSlot(level)}>
                 odnów
             </button>
+            {showDelete &&(
+                <button className="item-roundButton" onClick={() => deleteSlot()}>
+                    usuń
+                </button>)}
+
+
         </div>
 
     );

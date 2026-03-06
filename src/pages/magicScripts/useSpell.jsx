@@ -6,14 +6,18 @@ export function useSpell(){
         const saved = localStorage.getItem("spells");
         return saved ? JSON.parse(saved) : [];
     });
-    //const {createSlot} = useSpellSlot(); //nie działa jeszcze!!!!!!!!!!!!!!!!!!!!
 
-
-    //spelle pojawiaja sie dopiero po odswiezeniu?
     const [levelList,setLevelList]=useState(() => {
         const saved = localStorage.getItem("levelList");
         return saved ? JSON.parse(saved).map(level => Number(level)) : [];
     });
+
+    useEffect(() => {
+        const levels = [...new Set(
+            spells.map(spell => spell.level)
+        )].sort((a, b) => a - b);
+        setLevelList(levels);
+    }, [spells]);
 
     const addSpell = (name,level) => {
             const temp=parseInt(level)|0;
@@ -24,13 +28,6 @@ export function useSpell(){
             desc:"",
 
         };
-            if(spells.filter((spell)=>spell.level===temp).length===0){
-                console.log("2413123ifwenfoi");
-                //createSlot();
-                setLevelList([...levelList,level].sort((a,b)=>a-b))
-                console.log(levelList)
-                console.log("egiuuvnwuifwenfoi");
-            }
             setSpells(prevSpells => {
                 const updated = [...prevSpells, newSpell];
                 return updated.sort((a, b) => a.level - b.level);

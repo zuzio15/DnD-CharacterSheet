@@ -1,11 +1,26 @@
 .spell{
+    display:flex;
+    width: 80%;
+    justify-self: center;
     font-size: 20px;
     background: #a66a1b;
     border: 5px solid black;
-    margin: 5px
+    margin: 5px;
+    gap:5px;
+    position: relative;
 }
 
 .castSpellButton:disabled{
     background-color: #a58d6d;
     color: #4c4646;
+}
+.spellButtons{
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+
+}
+
+.info{
+    text-align: center;
 }

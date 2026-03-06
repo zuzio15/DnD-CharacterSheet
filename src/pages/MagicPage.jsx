@@ -9,7 +9,7 @@ import SpellSlot from "./magicScripts/SpellSlot";
 //DODAC SAVE SPELL DC + SPELL ATTACK BONUS + SPELLCASTING ABILITY
 export default function MagicPage() {
     const {spells,addSpell,deleteSpell,saveSpellDesc,levelList}=useSpell();
-    const {spellSlots,createSlot,addSlot,subtractSlot,consumeSlot,restoreSlot,longRest,castSpell}=useSpellSlot();
+    const {spellSlots,createSlot,addSlot,subtractSlot,consumeSlot,restoreSlot,longRest,castSpell,deleteSlot}=useSpellSlot();
     const [newSpell,setNewSpell]=useState("");
     const [newSpellLvl,setNewSpellLvl]=useState("0")
 
@@ -83,7 +83,8 @@ export default function MagicPage() {
                         subtractSlot={subtractSlot}
                         consumeSlot={consumeSlot}
                         restoreSlot={restoreSlot}
-                        longRest={longRest}
+                        deleteSlot={deleteSlot}
+                        maxSlot={spellSlots.length}
                     />
 
                 ))}
