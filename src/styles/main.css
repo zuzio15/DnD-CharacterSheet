@@ -58,6 +58,7 @@ button{
     background-color: #745738;
     color: #f1e6e6;
     border: black solid 1px;
+    min-height: 15px;
 }
 textarea{
     width: 100%;

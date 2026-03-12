@@ -1,11 +1,18 @@
 import React, {useEffect, useState} from "react";
 import {PresentationCharacteristics} from "./DescriptionScripts/PresentationCharacteristics";
 import {usePresentationsCharacteristics} from "./DescriptionScripts/usePresentationsCharacteristics";
+import {Backstory} from "./DescriptionScripts/Backstory";
+import {useBackstory} from "./DescriptionScripts/useBackstory";
+import {People} from "./DescriptionScripts/People";
+import {usePeople} from "./DescriptionScripts/usePeople";
 
+//Wygląd zrobić osobno
 
 export default function DescriptionPage() {
 
     const {characteristics,changePresentationCharacteristics} = usePresentationsCharacteristics();
+    const {backstory,editBackstory} = useBackstory();
+    const {people,editDescription} = usePeople();
 
     const [age, setAge] = useState(characteristics.age)
     const [height, setHeight] = useState(characteristics.height)
@@ -14,10 +21,15 @@ export default function DescriptionPage() {
     const [skin, setSkin] = useState(characteristics.skin)
     const [hair, setHair] = useState(characteristics.hair)
 
+    const [peopleName, setPeopleName] = useState("")
+
     const [image, setImage] = useState(() => {
         const saved = localStorage.getItem("image")
         return saved ? saved : "";
     })
+    const resetForms=()=>{
+        setPeopleName("")
+    }
 
     const handleInput = (e) => {
         const file = e.target.files[0];
@@ -78,15 +90,27 @@ export default function DescriptionPage() {
                 <button onClick={() => {changePresentationCharacteristics({age, height, weight, eyes, skin,hair})}}>
                     Zmień cechy wyglądu
                 </button>
-
-                <div>
-                    Wygląd
-                    <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" onInput={handleInput} />
-                    {image && <img src={image} alt="Dodaj wygląd postaci!" width="250" height="300"/>}
-                </div>
-
-
             </div>
+
+            <div>
+                Wygląd
+                <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" onInput={handleInput} />
+                {image && <img src={image} alt="Dodaj wygląd postaci!" width="250" height="300"/>}
+            </div>
+            <input
+                placeholder="nazwa osoby/organizacji"
+                value={peopleName}
+                onChange={(e) => {setPeopleName(e.target.value)}}
+            />
+            <button onClick={()=>{addPerson(peopleName); resetForms()}}> Dodaj osobę/organizację</button>
+            <People
+                people={people}
+                editDescription={editDescription}
+            />
+            <Backstory
+                text={backstory}
+                editBackstory={editBackstory}
+            />
         </div>
     );
 }
