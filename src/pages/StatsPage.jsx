@@ -225,7 +225,7 @@ export default function StatsPage() {
                         type="number"
                         value={level}
                         onChange={(e) => setLevel(e.target.value)}
-                        placeholder="poziomi"
+                        placeholder="poziom"
                     />
                     <input
                         value={origin}
@@ -233,7 +233,7 @@ export default function StatsPage() {
                         placeholder="pochodzenie"
                     />
                     <button onClick={() => {
-                        changeInfo({name: name, profession: profession, race: race, level: level, origin: origin})
+                        changeInfo({ name,  profession, race,  level,  origin})
                     }}>
                         Zmień dane postaci
                     </button>
