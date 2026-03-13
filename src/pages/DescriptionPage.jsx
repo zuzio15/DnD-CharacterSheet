@@ -3,8 +3,8 @@ import {PresentationCharacteristics} from "./DescriptionScripts/PresentationChar
 import {usePresentationsCharacteristics} from "./DescriptionScripts/usePresentationsCharacteristics";
 import {Backstory} from "./DescriptionScripts/Backstory";
 import {useBackstory} from "./DescriptionScripts/useBackstory";
-import {People} from "./DescriptionScripts/People";
-import {usePeople} from "./DescriptionScripts/usePeople";
+import {Person} from "./DescriptionScripts/Person";
+import {usePerson} from "./DescriptionScripts/usePerson";
 
 //Wygląd zrobić osobno
 
@@ -12,7 +12,7 @@ export default function DescriptionPage() {
 
     const {characteristics,changePresentationCharacteristics} = usePresentationsCharacteristics();
     const {backstory,editBackstory} = useBackstory();
-    const {people,editDescription} = usePeople();
+    const {people,addPerson,editDescription} = usePerson();
 
     const [age, setAge] = useState(characteristics.age)
     const [height, setHeight] = useState(characteristics.height)
@@ -30,7 +30,14 @@ export default function DescriptionPage() {
     const resetForms=()=>{
         setPeopleName("")
     }
+    const listItems = people.map(person =>
+        <Person
+            key={person.id}
+            person={person}
+            editDescription={editDescription}
+        />
 
+    );
     const handleInput = (e) => {
         const file = e.target.files[0];
         if (!file) return;
@@ -103,10 +110,9 @@ export default function DescriptionPage() {
                 onChange={(e) => {setPeopleName(e.target.value)}}
             />
             <button onClick={()=>{addPerson(peopleName); resetForms()}}> Dodaj osobę/organizację</button>
-            <People
-                people={people}
-                editDescription={editDescription}
-            />
+
+            <ul>{listItems}</ul>
+
             <Backstory
                 text={backstory}
                 editBackstory={editBackstory}
