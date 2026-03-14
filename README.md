@@ -1,2 +1,2 @@
 # DnD-CharacterSheet
-Strona w trakcie tworzenia, nie wszystko działa i jest brzydka
+Strona w trakcie tworzenia, dlatego nie wszystko działa 
