@@ -5,6 +5,7 @@ import {Backstory} from "./DescriptionScripts/Backstory";
 import {useBackstory} from "./DescriptionScripts/useBackstory";
 import {Person} from "./DescriptionScripts/Person";
 import {usePerson} from "./DescriptionScripts/usePerson";
+import {Gallery} from "./DescriptionScripts/Gallery";
 
 //Wygląd zrobić osobno
 
@@ -112,6 +113,8 @@ export default function DescriptionPage() {
             <button onClick={()=>{addPerson(peopleName); resetForms()}}> Dodaj osobę/organizację</button>
 
             <ul>{listItems}</ul>
+
+            <Gallery />
 
             <Backstory
                 text={backstory}
